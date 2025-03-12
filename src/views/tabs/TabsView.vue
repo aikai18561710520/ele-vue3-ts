@@ -11,9 +11,17 @@
 import { Tabbar, TabbarItem } from 'vant'
 import { ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { test } from '@/api/test'
 const route = useRoute()
 const router = useRouter()
 const active = ref(route.name as string)
+test().then((res) => {
+	console.log(res)
+})
+// const a = async () => {
+// 	const res = await test()
+// 	console.log(res)
+// }
 watch(active, (nv) => {
 	router.push({ name: nv })
 })

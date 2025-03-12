@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import tabbar from './views/Tabviews.vue'
+import tabbar from './views/tabs/TabsView.vue'
 </script>
 <template>
 	<RouterView />
