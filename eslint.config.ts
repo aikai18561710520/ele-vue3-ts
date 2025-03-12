@@ -16,6 +16,9 @@ export default defineConfigWithVueTs(
   {
     name: 'app/files-to-ignore',
     ignores: ['**/dist/**', '**/dist-ssr/**', '**/coverage/**'],
+    rules: {
+      "indtent": ["error", "tab"]
+    }
   },
 
   pluginVue.configs['flat/essential'],
