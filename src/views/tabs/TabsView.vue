@@ -15,9 +15,13 @@ import { test } from '@/api/test'
 const route = useRoute()
 const router = useRouter()
 const active = ref(route.name as string)
-test().then((res) => {
-	console.log(res)
-})
+// test()
+// 	.then((res) => {
+// 		console.log(res)
+// 	})
+// 	.catch((err) => {
+// 		console.log(err)
+// 	})
 // const a = async () => {
 // 	const res = await test()
 // 	console.log(res)

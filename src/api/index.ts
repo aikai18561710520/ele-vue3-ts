@@ -1,5 +1,5 @@
 import { extend } from 'umi-request'
-import { Dialog } from 'vant'
+import { showDialog } from 'vant'
 
 const errorHandler = (error: {
 	response: { status: any; headers: any }
@@ -24,7 +24,7 @@ const errorHandler = (error: {
 		// 请求初始化时出错或者没有响应返回的异常
 		console.log(error)
 	}
-
+	return error
 	// throw error // 如果throw. 错误将继续抛出.
 
 	// 如果return, 则将值作为返回. 'return;' 相当于return undefined, 在处理结果时判断response是否有值即可.
@@ -47,10 +47,10 @@ instance.interceptors.response.use(async (response) => {
 	const _data = await response.clone().json()
 	const { data, msg, code } = _data
 	if (code !== 0) {
-		Dialog.alert({
+		showDialog({
 			message: msg,
 		}).then(() => {
-			// 关闭弹窗
+			// 关闭逻辑
 		})
 		return Promise.reject(msg)
 	}
