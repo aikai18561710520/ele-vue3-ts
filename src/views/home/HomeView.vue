@@ -1,11 +1,26 @@
 <template>
-	home
-	<div class="home-root">红红火火恍恍惚惚哈哈</div>
+	<div>
+		<SearchView v-if="isShowSearchView" @cancel="toggleSearchView"></SearchView>
+		<HomeTop :recomments="recommentList" @searchClick="toggleSearchView" />
+	</div>
 </template>
 
 <script setup lang="ts">
-// import TabsView from './Tabviews.vue'
-// import {} from 'vue'
+import HomeTop from './components/HomeTop.vue'
+import SearchView from '@/views/search/SearchView.vue'
+import { useToggle } from '@/hooks/useToggle'
+import { reactive } from 'vue'
+const recommentList = [
+	{
+		value: 1,
+		label: '牛腩',
+	},
+	{
+		value: 2,
+		label: '煲仔饭',
+	},
+]
+const [isShowSearchView, toggleSearchView] = useToggle(false)
 </script>
 
 <style scoped>
