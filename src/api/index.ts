@@ -43,7 +43,7 @@ const instance = extend({
 })
 
 instance.interceptors.response.use(async (response) => {
-	console.log(response)
+	// console.log(response)
 	const _data = await response.clone().json()
 	const { data, msg, code } = _data
 	if (code !== 0) {
@@ -54,7 +54,7 @@ instance.interceptors.response.use(async (response) => {
 		})
 		return Promise.reject(msg)
 	}
-	return response
+	return data
 })
 
 export default instance

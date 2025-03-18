@@ -1,6 +1,9 @@
 <template>
 	<div>
-		<SearchView v-if="isShowSearchView" @cancel="toggleSearchView"></SearchView>
+		<transition name="fade">
+			<SearchView v-if="isShowSearchView" @cancel="toggleSearchView"></SearchView>
+		</transition>
+
 		<HomeTop :recomments="recommentList" @searchClick="toggleSearchView" />
 	</div>
 </template>
@@ -23,8 +26,13 @@ const recommentList = [
 const [isShowSearchView, toggleSearchView] = useToggle(false)
 </script>
 
-<style scoped>
-.home-root {
-	font-size: 39px;
+<style lang="scss" scoped>
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity 0.5s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+	opacity: 0;
 }
 </style>
