@@ -31,7 +31,7 @@ const errorHandler = (error: {
 	// return {some: 'data'};
 }
 const instance = extend({
-	timeout: 1000,
+	timeout: 10000,
 	prefix: '/api',
 	headers: {
 		'Content-Type': 'appliction/json',

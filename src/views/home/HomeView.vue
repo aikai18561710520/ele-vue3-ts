@@ -5,6 +5,8 @@
 		</transition>
 
 		<HomeTop :recomments="recommentList" @searchClick="toggleSearchView" />
+		{{ pending }}
+		{{ data }}
 	</div>
 </template>
 
@@ -12,7 +14,9 @@
 import HomeTop from './components/HomeTop.vue'
 import SearchView from '@/views/search/SearchView.vue'
 import { useToggle } from '@/hooks/useToggle'
-import { reactive } from 'vue'
+import { useAsync } from '@/hooks/useAsync'
+import { fetchHomePageData } from '@/api/homeData'
+import type { IHomeInfo } from '@/types'
 const recommentList = [
 	{
 		value: 1,
@@ -24,6 +28,7 @@ const recommentList = [
 	},
 ]
 const [isShowSearchView, toggleSearchView] = useToggle(false)
+const { pending, data } = useAsync(fetchHomePageData, {} as IHomeInfo)
 </script>
 
 <style lang="scss" scoped>
