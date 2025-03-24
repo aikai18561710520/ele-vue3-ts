@@ -5,8 +5,9 @@
 		</transition>
 
 		<HomeTop :recomments="recommentList" @searchClick="toggleSearchView" />
-		{{ pending }}
-		{{ data }}
+		<OpLoadingView :loading="pending" type="skeleton">
+			<div>{{ data }}</div>
+		</OpLoadingView>
 	</div>
 </template>
 
@@ -17,6 +18,7 @@ import { useToggle } from '@/hooks/useToggle'
 import { useAsync } from '@/hooks/useAsync'
 import { fetchHomePageData } from '@/api/homeData'
 import type { IHomeInfo } from '@/types'
+import OpLoadingView from '@/components/opLoadingView.vue'
 const recommentList = [
 	{
 		value: 1,
