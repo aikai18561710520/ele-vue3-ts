@@ -13,8 +13,9 @@ export interface ISearchResult {
 	resultCound: number
 }
 export interface IHomeInfo {
-	banner: IBanner
+	banner: IBanner[]
 	searchRecomments: ISearchRecomment[]
+	scrollBarInfoList: IScrollBarInfo[]
 	transformer: ITranstormer[]
 	countDown: ICountDown
 	activities: string[]
@@ -25,6 +26,12 @@ interface IBanner {
 interface ITranstormer {
 	imgUrl: string
 	label: string
+}
+interface IScrollBarInfo {
+	type: string
+	badge: string
+	detail: string
+	btn: string
 }
 interface ICountDown {
 	time: number
